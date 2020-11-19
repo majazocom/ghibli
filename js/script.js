@@ -18,16 +18,10 @@ let getMovies = () => {
 getMovies();
 
 document.getElementById('search-button').addEventListener('click', function() {
-    
-    const input = document.getElementById('search-input').value; 
 
     //for every movie in the Movies-list - match the title with the input
     for (let i = 0; i < movies.length; i++) {
-        if (movies[i].title.toLowerCase() == input.toLowerCase()) {
-            console.log('true');
-        } else {
-            console.log('false');
-        }
+        console.log(movies[i].title, movies[i].director);
     }
 
 });
