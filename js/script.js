@@ -2,13 +2,18 @@ const url = "https://ghibliapi.herokuapp.com/films";
 let movies;
 
 let renderMovies = () => {
+
     for (let i = 0; i < movies.length; i++) {
-        console.log(movies[i].title, movies[i].director);
-        document.getElementById('movie-list').innerHTML += `<li id="movie">
-        <p id="title">HEJ</p>
-        <p id="director">DÅ</p>
-    </li>`
+
+        let li = document.createElement("li");
+
+        let liText = document.createTextNode(movies[i].title + ', ' + movies[i].director);
+
+        li.appendChild(liText);
+
+        document.getElementById('movie-list').appendChild(li);
     }
+
 }
 
 let getMovies = () => {
