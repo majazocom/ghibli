@@ -1,6 +1,16 @@
 const url = "https://ghibliapi.herokuapp.com/films";
 let movies;
 
+let renderMovies = () => {
+    for (let i = 0; i < movies.length; i++) {
+        console.log(movies[i].title, movies[i].director);
+        document.getElementById('movie-list').innerHTML += `<li id="movie">
+        <p id="title">HEJ</p>
+        <p id="director">DÅ</p>
+    </li>`
+    }
+}
+
 let getMovies = () => {
     //here goes the fetch
 
@@ -9,6 +19,8 @@ let getMovies = () => {
     .then(data => {
         //här stoppar vi in resultatet i vår movies-variabel
         movies = data;
+        //kalla på vår funktion där vi renderar våra filmer ut i vyn
+        renderMovies();
     })
     .catch((error) => { //Fånga ev. fel
         console.log('Error: ', error);
@@ -16,12 +28,3 @@ let getMovies = () => {
 };
 
 getMovies();
-
-document.getElementById('search-button').addEventListener('click', function() {
-
-    //for every movie in the Movies-list - match the title with the input
-    for (let i = 0; i < movies.length; i++) {
-        console.log(movies[i].title, movies[i].director);
-    }
-
-});
