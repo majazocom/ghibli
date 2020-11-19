@@ -5,13 +5,15 @@ let renderMovies = () => {
 
     for (let i = 0; i < movies.length; i++) {
 
-        let li = document.createElement("li");
+        let article = document.createElement("article"); //create new element
 
-        let liText = document.createTextNode(movies[i].title + ', ' + movies[i].director);
+        article.classList.add('movie'); //add classname to element
 
-        li.appendChild(liText);
+        let articleText = document.createTextNode(movies[i].title + ', ' + movies[i].director);
 
-        document.getElementById('movie-list').appendChild(li);
+        article.appendChild(articleText); //add text inside of the new element
+
+        document.getElementById('movie-list').appendChild(article);
     }
 
 }
